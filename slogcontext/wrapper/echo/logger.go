@@ -4,7 +4,8 @@ import (
 	"context"
 	"log/slog"
 	"net/http"
-	"slogcontext"
+
+	"github.com/Mkamono/slogcontext/slogcontext"
 )
 
 // implement echo.Context interface

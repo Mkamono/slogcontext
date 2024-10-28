@@ -2,7 +2,8 @@ package googlecloud
 
 import (
 	"log/slog"
-	"slogcontext/adapter"
+
+	"github.com/Mkamono/slogcontext/slogcontext/adapter"
 )
 
 func KeyRule() adapter.ReplaceRule {
