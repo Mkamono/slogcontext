@@ -27,12 +27,12 @@ func main() {
 }
 
 func setupLogger() {
-	baseHandler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
+	baseLogHandler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		AddSource: true,
 		ReplaceAttr: adapter.NewReplacer(
 			adapter.SourceHierarchyRule(echoContextLogger.WrapHierarchy),
 		),
 	})
-	slogcontext.NewHandler(baseHandler)
-	slog.SetDefault(slog.New(baseHandler))
+	logHandler := slogcontext.NewHandler(baseLogHandler)
+	slog.SetDefault(slog.New(logHandler))
 }
