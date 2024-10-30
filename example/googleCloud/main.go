@@ -8,7 +8,7 @@ import (
 
 	"github.com/Mkamono/slogcontext/slogcontext"
 	"github.com/Mkamono/slogcontext/slogcontext/adapter"
-	googlecloud "github.com/Mkamono/slogcontext/slogcontext/adapter/googleCloud"
+	googleCloudAdapter "github.com/Mkamono/slogcontext/slogcontext/adapter/googleCloud"
 )
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
@@ -34,7 +34,7 @@ func setupLogger() {
 	baseLogHandler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		AddSource: true,
 		ReplaceAttr: adapter.NewReplacer(
-			googlecloud.KeyRule(),
+			googleCloudAdapter.KeyRule(),
 		),
 	})
 	logHandler := slogcontext.NewHandler(baseLogHandler)
