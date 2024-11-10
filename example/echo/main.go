@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/Mkamono/slogcontext/slogcontext"
-	"github.com/Mkamono/slogcontext/slogcontext/adapter"
 	echoContextLogger "github.com/Mkamono/slogcontext/slogcontext/wrapper/echo"
 	"github.com/labstack/echo/v4"
 )
@@ -29,9 +28,6 @@ func main() {
 func setupLogger() {
 	baseLogHandler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		AddSource: true,
-		ReplaceAttr: adapter.NewReplacer(
-			adapter.SourceHierarchyRule(echoContextLogger.WrapHierarchy),
-		),
 	})
 	logHandler := slogcontext.NewHandler(baseLogHandler)
 	slog.SetDefault(slog.New(logHandler))

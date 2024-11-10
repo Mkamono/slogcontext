@@ -27,6 +27,13 @@ func (h Handler) Handle(ctx context.Context, record slog.Record) error {
 			return true
 		})
 	}
+
+	// ctxからpcを取得し、Recordを更新する
+	pc, ok := ctx.Value(pcKey).(uintptr)
+	if ok {
+		record.PC = pc
+	}
+
 	return h.handler.Handle(ctx, record)
 }
 

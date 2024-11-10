@@ -34,15 +34,21 @@ func split(attrs slogcontext.Attrs) []any {
 }
 
 func InfoContext(eCtx customContext, msg string, attrs slogcontext.Attrs) {
-	slog.InfoContext(getContext(eCtx), msg, split(attrs)...)
+	ctx := getContext(eCtx)
+	ctx = slogcontext.WithPC(ctx)
+	slog.InfoContext(ctx, msg, split(attrs)...)
 }
 
 func ErrorContext(eCtx customContext, msg string, attrs slogcontext.Attrs) {
-	slog.ErrorContext(getContext(eCtx), msg, split(attrs)...)
+	ctx := getContext(eCtx)
+	ctx = slogcontext.WithPC(ctx)
+	slog.ErrorContext(ctx, msg, split(attrs)...)
 }
 
 func WarnContext(eCtx customContext, msg string, attrs slogcontext.Attrs) {
-	slog.WarnContext(getContext(eCtx), msg, split(attrs)...)
+	ctx := getContext(eCtx)
+	ctx = slogcontext.WithPC(ctx)
+	slog.WarnContext(ctx, msg, split(attrs)...)
 }
 
 func WithValue(eCtx customContext, attrs slogcontext.Attrs) {
