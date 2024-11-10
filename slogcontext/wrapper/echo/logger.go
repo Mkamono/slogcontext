@@ -23,8 +23,6 @@ func setContent(eCtx customContext, ctx context.Context) {
 	eCtx.SetRequest(eCtx.Request().WithContext(ctx))
 }
 
-const WrapHierarchy int = 1
-
 func split(attrs slogcontext.Attrs) []any {
 	args := make([]any, 0, len(attrs)*2)
 	for k, v := range attrs {
