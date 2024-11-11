@@ -13,7 +13,7 @@ func KeyRule() adapter.ReplaceRule {
 			if a.Value.String() == slog.LevelWarn.String() {
 				return slog.String(LevelKey, "WARNING")
 			}
-			a.Key = LabelKey
+			a.Key = LevelKey
 		case slog.MessageKey:
 			a.Key = MessageKey
 		case slog.SourceKey:
