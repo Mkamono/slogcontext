@@ -9,7 +9,7 @@ type pcKeyType struct{}
 
 var pcKey = pcKeyType{}
 
-// PCをcontextに追加する
+// プログラムカウンタをcontextに追加する
 // slog.xxxContextのラッパー関数内で呼び出して、ログが呼び出されたPCを取得する
 func WithPC(ctx context.Context) context.Context {
 	var pcs [1]uintptr
