@@ -1,2 +1,9 @@
 .vscode
 .task
+.claude
+
+# compiled binaries in example directories
+example/echo/echo-example
+example/strict/strict-example
+example/otel/otel-example
+example/googlecloud-otel-echo/googlecloud-otel-echo-example

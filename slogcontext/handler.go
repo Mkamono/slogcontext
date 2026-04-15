@@ -48,5 +48,5 @@ func (h Handler) WithAttrs(attrs []slog.Attr) slog.Handler {
 }
 
 func (h Handler) WithGroup(name string) slog.Handler {
-	return h.handler.WithGroup(name)
+	return Handler{h.handler.WithGroup(name)}
 }

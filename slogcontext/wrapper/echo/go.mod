@@ -1,10 +1,9 @@
-module echo-example
+module github.com/Mkamono/slogcontext/slogcontext/wrapper/echo
 
 go 1.23.2
 
 require (
 	github.com/Mkamono/slogcontext/slogcontext v0.0.0
-	github.com/Mkamono/slogcontext/slogcontext/wrapper/echo v0.0.0
 	github.com/labstack/echo/v4 v4.12.0
 )
 
@@ -20,7 +19,4 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 )
 
-replace (
-	github.com/Mkamono/slogcontext/slogcontext => ../../slogcontext
-	github.com/Mkamono/slogcontext/slogcontext/wrapper/echo => ../../slogcontext/wrapper/echo
-)
+replace github.com/Mkamono/slogcontext/slogcontext => ../..

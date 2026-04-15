@@ -1,7 +1,13 @@
-module standard
+module strict-example
 
 go 1.23.2
 
-replace github.com/Mkamono/slogcontext/slogcontext => ../../slogcontext
+require (
+	github.com/Mkamono/slogcontext/slogcontext v0.0.0
+	github.com/Mkamono/slogcontext/slogcontext/wrapper/strict v0.0.0
+)
 
-require github.com/Mkamono/slogcontext/slogcontext v0.0.0-20241030144340-91494a520107
+replace (
+	github.com/Mkamono/slogcontext/slogcontext => ../../slogcontext
+	github.com/Mkamono/slogcontext/slogcontext/wrapper/strict => ../../slogcontext/wrapper/strict
+)

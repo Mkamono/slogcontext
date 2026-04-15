@@ -15,11 +15,9 @@ func main() {
 
 	setupLogger()
 
-	// Set up server
 	e.GET("/", func(c echo.Context) error {
-		// Log with context
 		echoContextLogger.WithValue(c, slogcontext.Attrs{"key": "value"})
-		echoContextLogger.InfoContext(c, "Hello, World!", slogcontext.Attrs{"key2": "value2"})
+		echoContextLogger.InfoContext(c, "Hello, World!", "key2", "value2")
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 	e.Logger.Fatal(e.Start(":1323"))
