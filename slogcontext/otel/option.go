@@ -1,8 +1,15 @@
 package otel
 
+// DefaultTraceKey and DefaultSpanKey are the slog attribute keys used by Handler
+// when no WithTraceKey / WithSpanKey option is provided.
+// Pass these to adapter/googleCloud.OtelRuleWithKeys to ensure the adapter always
+// matches the handler's key names.
 const (
-	defaultTraceKey = "trace_id"
-	defaultSpanKey  = "span_id"
+	DefaultTraceKey = "trace_id"
+	DefaultSpanKey  = "span_id"
+
+	defaultTraceKey = DefaultTraceKey
+	defaultSpanKey  = DefaultSpanKey
 )
 
 // Option is a functional option for configuring Handler.

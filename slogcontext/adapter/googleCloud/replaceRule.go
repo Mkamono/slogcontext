@@ -10,6 +10,10 @@ import (
 // ("trace_id", "span_id") to Google Cloud Logging structured log fields.
 // projectID is the GCP project ID used to form the full trace resource name.
 //
+// The hardcoded key names match otel.DefaultTraceKey and otel.DefaultSpanKey.
+// If you configure otel.Handler with otel.WithTraceKey or otel.WithSpanKey,
+// use OtelRuleWithKeys instead to keep the two in sync.
+//
 // Compose with KeyRule via adapter.NewReplacer:
 //
 //	adapter.NewReplacer(googlecloud.KeyRule(), googlecloud.OtelRule("my-project"))

@@ -13,6 +13,9 @@ type ReplaceRule func(a slog.Attr) slog.Attr
 
 func NewReplacer(rules ...ReplaceRule) replacer {
 	return func(groups []string, a slog.Attr) slog.Attr {
+		if len(groups) > 0 {
+			return a
+		}
 		for _, rule := range rules {
 			a = rule(a)
 		}
